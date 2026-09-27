@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useState } from "react";
 import { profile } from "@/app/lib/content";
 import { messages } from "@/app/lib/i18n";
 import { usePreferences } from "./preferences-provider";
@@ -20,6 +21,8 @@ export function PortfolioPage() {
   const { locale } = usePreferences();
   const copy = messages[locale];
   const reduceMotion = useReducedMotion();
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const visibleProjects = showAllProjects ? copy.projects : copy.projects.slice(0, 4);
 
   return (
     <main id="top">
@@ -54,8 +57,8 @@ export function PortfolioPage() {
 
       <section className="work" id="work">
         <Reveal className="section-intro"><h2>{copy.work.title}</h2><p>{copy.work.intro}</p></Reveal>
-        <div className="project-list">
-          {copy.projects.map((project, index) => (
+        <div className="project-list" id="project-list">
+          {visibleProjects.map((project, index) => (
             <Reveal className="project-record" delay={index * .04} key={project.slug}>
               <div className="project-heading"><span>0{index + 1}</span><span>{project.year}</span><p>{project.category}</p><h3>{project.title}</h3></div>
               <ProjectVisual image={project.image} priority={index === 0} />
@@ -65,12 +68,24 @@ export function PortfolioPage() {
                 <ul>{project.technologies.map((technology) => <li key={technology}>{technology}</li>)}</ul>
                 <div className="project-links">
                   {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noreferrer">{copy.work.live}<ArrowOutIcon size={15} /></a>}
-                  <a href={project.sourceUrl} target="_blank" rel="noreferrer">{copy.work.source}<ArrowOutIcon size={15} /></a>
+                  {project.sourceUrl && <a href={project.sourceUrl} target="_blank" rel="noreferrer">{copy.work.source}<ArrowOutIcon size={15} /></a>}
                 </div>
               </div>
             </Reveal>
           ))}
         </div>
+        {copy.projects.length > 4 && (
+          <button
+            type="button"
+            className="project-toggle primary-link"
+            aria-expanded={showAllProjects}
+            aria-controls="project-list"
+            onClick={() => setShowAllProjects((current) => !current)}
+          >
+            {showAllProjects ? copy.work.fewer : copy.work.more}
+            <span aria-hidden="true">{showAllProjects ? "−" : "+"}</span>
+          </button>
+        )}
       </section>
 
       <section className="capabilities" id="capabilities">

@@ -6,7 +6,7 @@ export interface Project {
   readonly summary: string;
   readonly detail: string;
   readonly technologies: readonly string[];
-  readonly sourceUrl: string;
+  readonly sourceUrl?: string;
   readonly liveUrl?: string;
   readonly image: { readonly src: string; readonly alt: string; readonly width: number; readonly height: number };
 }
@@ -63,6 +63,31 @@ export const projects: readonly Project[] = [
     sourceUrl: "https://github.com/DanaHmeed/Critiq",
     liveUrl: "https://critiq-rho.vercel.app/",
     image: { src: "/projects/critiq.webp", alt: "Critiq collaborative code review interface", width: 1446, height: 1087 },
+  },
+  {
+    slug: "ai-coding-agent",
+    title: "AI Coding Agent",
+    year: "2026",
+    category: "AI & developer tooling",
+    summary:
+      "A Python command-line coding agent that uses an LLM to inspect files, reason about a codebase, and execute predefined development tools.",
+    detail:
+      "Built through Boot.dev's AI Agent project, with function calling, file-system operations, an iterative agent execution loop, and safety boundaries for tool access. Prompt engineering and environment-based API configuration support automated code analysis.",
+    technologies: ["Python", "LLM integration", "AI agents", "Tool calling", "Prompt engineering", "CLI development"],
+    image: { src: "/projects/ai-coding-agent.svg", alt: "AI Coding Agent placeholder: file inspection, LLM reasoning, and predefined tools", width: 1440, height: 1080 },
+  },
+  {
+    slug: "gator",
+    title: "Gator",
+    year: "2026",
+    category: "RSS blog aggregator CLI",
+    summary:
+      "A TypeScript command-line RSS aggregator backed by PostgreSQL, with user registration, login, and feed subscription management.",
+    detail:
+      "Built through Boot.dev's Gator project. Drizzle ORM and migrations manage users, feeds, and many-to-many subscriptions through feed_follows. Async commands add, follow, and unfollow feeds, fetch and parse RSS content, and save posts for terminal browsing.",
+    technologies: ["TypeScript", "Node.js", "PostgreSQL", "Drizzle ORM", "RSS / XML parsing", "CLI development", "Relational databases", "Database migrations", "Async programming"],
+    sourceUrl: "https://github.com/DanaHmeed/blog_gator",
+    image: { src: "/projects/gator.svg", alt: "Gator placeholder: RSS feeds, feed subscriptions, and PostgreSQL storage", width: 1440, height: 1080 },
   },
   {
     slug: "medidesk",

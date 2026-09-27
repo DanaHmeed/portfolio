@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1080" viewBox="0 0 1440 1080">
+  <rect width="1440" height="1080" fill="#15171a"/>
+  <g fill="none" stroke="#292d32" stroke-width="2">
+    <path d="M0 100H1440M0 980H1440M100 100V980M1340 100V980"/>
+    <rect x="160" y="420" width="1120" height="340"/>
+    <path d="M200 530H1240M200 640H1240"/>
+  </g>
+  <g font-family="monospace" fill="#989da3" font-size="25">
+    <text x="60" y="63">TYPESCRIPT / POSTGRESQL</text>
+    <text x="60" y="1040">BOOT.DEV PROJECT</text>
+    <text x="1030" y="1040">PLACEHOLDER</text>
+    <text x="220" y="490">01</text><text x="320" y="490">Users + feeds</text>
+    <text x="220" y="600">02</text><text x="320" y="600">feed_follows</text>
+    <text x="220" y="710">03</text><text x="320" y="710">RSS / XML + saved posts</text>
+  </g>
+  <text x="160" y="300" font-family="sans-serif" font-size="76" font-weight="600" fill="#f1f2ee">Gator</text>
+  <path d="M160 350H360" stroke="#c8ff45" stroke-width="5"/>
+  <text x="160" y="865" font-family="monospace" font-size="25" fill="#c8ff45">RSS BLOG AGGREGATOR / CLI</text>
+</svg>
