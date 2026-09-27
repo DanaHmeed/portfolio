@@ -45,12 +45,12 @@ export function ContactPage() {
       <SiteHeader />
       <main className="contact-page" id="top">
         <Link className="text-link" href="/">{copy.home}</Link>
-        <div className="section-intro contact-intro">
+        <div className="section-intro contact-intro page-enter">
           <h1>{copy.title}</h1>
           <p>{copy.intro}</p>
         </div>
         <div className="contact-layout">
-          <form className="contact-form" noValidate onSubmit={handleSubmit} aria-label={copy.formTitle} aria-describedby="contact-notice" aria-busy={status === "sending"}>
+          <form className="contact-form page-enter page-enter-follow" noValidate onSubmit={handleSubmit} aria-label={copy.formTitle} aria-describedby="contact-notice" aria-busy={status === "sending"}>
             <p className="contact-notice" id="contact-notice">{copy.notice}</p>
             <div className="contact-fields">
               {contactFields.map((field) => {
@@ -77,14 +77,17 @@ export function ContactPage() {
             </div>
             <div className="contact-submit">
               <button className="primary-link" type="submit" disabled={status === "sending"}>
-                {status === "sending" ? copy.sending : copy.send}<ArrowOutIcon size={17} />
+                <span className="submit-labels">
+                  <span style={{ opacity: status === "sending" ? 0 : 1 }} aria-hidden={status === "sending"}>{copy.send}</span>
+                  <span style={{ opacity: status === "sending" ? 1 : 0 }} aria-hidden={status !== "sending"}>{copy.sending}</span>
+                </span><ArrowOutIcon size={17} />
               </button>
               <p role="status" aria-live="polite" aria-atomic="true">
-                {status === "sent" ? copy.success : status === "unavailable" ? copy.unavailable : status === "error" ? copy.failure : status === "sending" ? copy.sending : ""}
+                <span className="contact-feedback" key={status}>{status === "sent" ? copy.success : status === "unavailable" ? copy.unavailable : status === "error" ? copy.failure : status === "sending" ? copy.sending : ""}</span>
               </p>
             </div>
           </form>
-          <aside className="contact-details" aria-labelledby="contact-details-title">
+          <aside className="contact-details page-enter page-enter-follow" aria-labelledby="contact-details-title">
             <h2 id="contact-details-title">{copy.details}</h2>
             <div className="project-links">
               <a href={profile.github} target="_blank" rel="noreferrer">GitHub<ArrowOutIcon size={15} /></a>
