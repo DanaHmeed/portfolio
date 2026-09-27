@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { profile } from "@/app/lib/content";
 import { messages } from "@/app/lib/i18n";
 import { FoldIcon, ThemeIcon } from "./icons";
@@ -8,6 +10,7 @@ import { usePreferences } from "./preferences-provider";
 export function SiteHeader() {
   const { locale, setLocale, theme, toggleTheme } = usePreferences();
   const copy = messages[locale];
+  const isHome = usePathname() === "/";
   const navigation = [
     { href: "#work", label: copy.nav.work },
     { href: "#capabilities", label: copy.nav.capabilities },
@@ -16,15 +19,15 @@ export function SiteHeader() {
 
   return (
     <header className="site-header">
-      <a className="brand" href="#top" aria-label={`${profile.name}, home`}>
+      <Link className="brand" href={isHome ? "#top" : "/"} aria-label={`${profile.name}, home`}>
         <FoldIcon size={18} />
         <span>DANA / SE</span>
-      </a>
+      </Link>
       <nav aria-label="Primary navigation">
         {navigation.map((item) => (
-          <a href={item.href} key={item.href}>
+          <Link href={isHome ? item.href : `/${item.href}`} key={item.href}>
             {item.label}
-          </a>
+          </Link>
         ))}
       </nav>
       <div className="header-tools">
@@ -36,7 +39,7 @@ export function SiteHeader() {
         <button className="theme-switch" onClick={toggleTheme} aria-label={theme === "dark" ? "Use light theme" : "Use dark theme"}>
           <ThemeIcon isLight={theme === "dark"} size={18} />
         </button>
-        <a className="header-contact" href={`mailto:${profile.email}`}>{copy.nav.contact}</a>
+        <Link className="header-contact" href="/contact" aria-current={isHome ? undefined : "page"}>{copy.nav.contact}</Link>
       </div>
     </header>
   );

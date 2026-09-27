@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { profile } from "@/app/lib/content";
 import { messages } from "@/app/lib/i18n";
 import { ArrowOutIcon } from "./icons";
@@ -12,9 +13,9 @@ export function SiteFooter() {
     <footer id="contact">
       <div className="footer-prompt">
         <p>{copy.availability}</p>
-        <a href={`mailto:${profile.email}`}>
+        <Link href="/contact">
           {copy.title} <ArrowOutIcon size={28} />
-        </a>
+        </Link>
       </div>
       <div className="footer-meta">
         <span>{profile.name} / Software Engineer</span>

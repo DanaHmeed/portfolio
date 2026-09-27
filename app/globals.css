@@ -38,6 +38,37 @@ html[dir=rtl] .capability-row li{font-family:var(--font-arabic),sans-serif}
 @media(max-width:720px){.capability-row ul{grid-template-columns:1fr}.capability-row li{padding:.6rem}}
 
 /* Frosted surfaces: neutral reflections, with the existing accent reserved for actions. */
+/* Contact follows the same editorial grid and surface tokens as selected work. */
+.contact-page{padding:clamp(3rem,7vw,7rem) clamp(1rem,4vw,4rem);min-height:calc(100dvh - var(--header))}
+.contact-intro{margin-top:3rem}
+.contact-intro h1{font-size:clamp(3rem,6vw,6rem);line-height:1;letter-spacing:-.055em;font-weight:600}
+html[dir=rtl] .contact-intro h1{letter-spacing:-.025em;line-height:1.2}
+.contact-layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(2rem,6vw,6rem);align-items:start}
+.contact-form{padding:clamp(1.25rem,3vw,2.5rem);border:1px solid var(--glass-edge);border-radius:8px;background:linear-gradient(145deg,var(--glass-highlight),transparent 55%),var(--glass-fill);box-shadow:inset 0 1px 0 var(--glass-highlight),var(--glass-shadow)}
+.contact-notice{margin-bottom:2rem;padding-inline-start:1rem;border-inline-start:2px solid var(--accent);color:var(--muted);font-size:.85rem;line-height:1.65}
+.contact-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem}
+.contact-field{display:flex;flex-direction:column;gap:.65rem;min-width:0}
+.contact-field-subject,.contact-field-message{grid-column:1/-1}
+.contact-field label{font-size:.82rem;font-weight:600}
+.contact-field input,.contact-field textarea{width:100%;min-width:0;border:1px solid var(--line);border-radius:5px;padding:.85rem 1rem;background:var(--bg);color:var(--ink);font:inherit;font-size:1rem;line-height:1.5}
+.contact-field textarea{resize:vertical;min-height:180px}
+.contact-field input:focus-visible,.contact-field textarea:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.contact-field [aria-invalid=true]{border-color:var(--accent);border-inline-start-width:3px}
+.contact-error{font-size:.8rem;line-height:1.5;color:var(--ink)}
+.contact-submit{display:grid;justify-items:start;gap:1rem;margin-top:2rem}
+.contact-submit button{border:0;min-height:48px;cursor:pointer}
+.contact-submit button:disabled{opacity:.6;cursor:wait;transform:none}
+.contact-submit [role=status]{font-size:.85rem;line-height:1.65;color:var(--ink)}
+.contact-details{display:grid;gap:2rem;padding-block:1.5rem;border-top:1px solid var(--line)}
+.contact-details h2{font-size:1.5rem;letter-spacing:-.03em;font-weight:600}
+.contact-details p{margin-top:.75rem;overflow-wrap:anywhere;text-align:start}
+.contact-details .project-links{margin-top:0}
+.header-contact[aria-current=page]{border-color:var(--accent);color:var(--accent)}
+@media(max-width:1000px){.contact-layout{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:2rem}}
+@media(max-width:720px){.contact-layout,.contact-fields{grid-template-columns:1fr}.contact-intro{margin-top:2.5rem}.site-header .header-contact{display:inline-flex;padding:.6rem .7rem}.header-tools{gap:.4rem}.contact-submit button{justify-content:center;width:100%}}
+@media(max-width:380px){.site-header .brand span{font-size:.6rem}.site-header .brand{gap:.3rem}.site-header .header-contact{padding:.6rem .5rem}}
+@media(prefers-reduced-transparency:reduce){.contact-form{background:var(--surface)}}
+
 :root{
   --glass-fill:color-mix(in srgb,var(--surface) 82%,transparent);
   --glass-edge:color-mix(in srgb,var(--ink) 14%,transparent);

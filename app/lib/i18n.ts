@@ -4,6 +4,18 @@ export type Locale = "en" | "ar";
 
 export const messages = {
   en: {
+    contact: {
+      home: "Back to home", title: "Let’s connect.", formTitle: "Contact Dana",
+      intro: "Have a software engineering role, a full-stack or backend project, or an opportunity in Data & AI? Tell me what you’re working on. I’m also open to technical collaborations.",
+      notice: "Message delivery is not available yet. You can reach me through the LinkedIn or Email links here.",
+      fields: { name: "Name", email: "Email", subject: "Subject", message: "Message" },
+      errors: { required: "Please fill in this field.", email: "Enter a valid email address.", tooLong: "Please shorten this field." },
+      send: "Send Message", sending: "Sending…",
+      success: "Message sent successfully. I’ll get back to you soon.",
+      unavailable: "Your message was not sent. Message delivery is not connected yet. Your text is still here; please contact me using the details on this page.",
+      failure: "Your message could not be sent. Your text is still here. Please try again or use the contact details on this page.",
+      details: "Contact details",
+    },
     nav: { work: "Projects", capabilities: "Stack", about: "About", contact: "Contact" },
     hero: {
       status: "Available for software engineering opportunities",
@@ -22,6 +34,18 @@ export const messages = {
     capabilityGroups,
   },
   ar: {
+    contact: {
+      home: "العودة للرئيسية", title: "لنتواصل.", formTitle: "تواصل مع دانا",
+      intro: "لديك فرصة في هندسة البرمجيات، أو مشروع Full-stack أو Backend، أو فرصة في البيانات والذكاء الاصطناعي؟ أخبرني بما تعمل عليه. أرحب أيضاً بالتعاون في المشاريع التقنية.",
+      notice: "إرسال الرسائل غير متاح حالياً. يمكنك التواصل معي عبر رابط LinkedIn أو رابط البريد الإلكتروني هنا.",
+      fields: { name: "الاسم", email: "البريد الإلكتروني", subject: "الموضوع", message: "الرسالة" },
+      errors: { required: "يرجى تعبئة هذا الحقل.", email: "أدخل عنوان بريد إلكتروني صالحاً.", tooLong: "يرجى اختصار محتوى هذا الحقل." },
+      send: "إرسال الرسالة", sending: "جارٍ الإرسال…",
+      success: "تم إرسال الرسالة بنجاح. سأرد عليك قريباً.",
+      unavailable: "لم تُرسل رسالتك. خدمة الإرسال غير متصلة بعد. النص ما زال محفوظاً في النموذج؛ يرجى استخدام بيانات التواصل في هذه الصفحة.",
+      failure: "تعذر إرسال رسالتك. النص ما زال في النموذج. حاول مجدداً أو استخدم بيانات التواصل في هذه الصفحة.",
+      details: "بيانات التواصل",
+    },
     nav: { work: "المشاريع", capabilities: "التقنيات", about: "عني", contact: "تواصل" },
     hero: {
       status: "متاحة لفرص هندسة البرمجيات",
